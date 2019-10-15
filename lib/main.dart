@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import './detail.dart';
+import './adddata.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -31,6 +32,18 @@ class _HomeState extends State<Home> {
         leading: Icon(Icons.computer),
         title: Text("Rez Official Store"),
         backgroundColor: Colors.purple[900],
+      ),
+
+      // membuat floating button untuk tambah data
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        backgroundColor: Colors.purple[900],
+        // ketika di tap button, akan masuk ke dalam halaman adddata
+        onPressed: ()=>Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (BuildContext context) => AddData(),
+          )
+        ),
       ),
 
       // membuat list yang berasal dari getData
