@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './editdata.dart';
 
 class Detail extends StatefulWidget {
   List list;
@@ -42,21 +43,27 @@ class _DetailState extends State<Detail> {
                     "Stock Item : ${widget.list[widget.index]['stock']}",
                     style: TextStyle(fontSize: 16.0),
                   ),
-                  
-                  Padding(padding: EdgeInsets.all(20.0),),
-
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       RaisedButton(
                         child: Text("EDIT"),
                         color: Colors.green,
-                        onPressed: (){},
+                        onPressed: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => EditData(
+                            list: widget.list,
+                            index: widget.index,
+                          ),
+                        )),
                       ),
                       RaisedButton(
                         child: Text("DELETE"),
                         color: Colors.red,
-                        onPressed: (){},
+                        onPressed: () {},
                       ),
                     ],
                   )
